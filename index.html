@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Э.Төрбат — 3 сарын дадлагажих хугацааны тайлан">
+<title>3 сарын туршилтьн хугацааны тайлан | Э.Төрбат</title>
+<style>
+:root{
+  --navy:#062b63;
+  --blue:#0b4ea2;
+  --sky:#eaf4ff;
+  --ink:#172033;
+  --muted:#667085;
+  --line:#dbe5f0;
+  --white:#fff;
+  --shadow:0 16px 45px rgba(10,42,80,.10);
+  --radius:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:#f5f8fc;color:var(--ink);
+  font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.65;
+}
+button,a{font:inherit}
+a{color:inherit;text-decoration:none}
+.app{display:flex;min-height:100vh}
+.sidebar{
+  position:fixed;z-index:30;left:0;top:0;bottom:0;width:285px;
+  background:linear-gradient(180deg,#061f46 0%,#07376f 62%,#0a4e91 100%);
+  color:white;padding:28px 18px;overflow:auto;
+}
+.brand{padding:4px 12px 22px;border-bottom:1px solid rgba(255,255,255,.15);margin-bottom:15px}
+.brand .eyebrow{font-size:11px;letter-spacing:1.7px;text-transform:uppercase;opacity:.72}
+.brand h2{margin:7px 0 0;font-size:20px;line-height:1.25}
+.brand p{margin:7px 0 0;font-size:12px;opacity:.72}
+.nav{display:grid;gap:4px}
+.nav a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;color:#e8f2ff;font-size:13px;transition:.2s}
+.nav a:hover,.nav a.active{background:rgba(255,255,255,.13);color:#fff}
+.nav .num{width:27px;height:27px;border:1px solid rgba(255,255,255,.2);border-radius:8px;display:grid;place-items:center;font-size:11px;flex:none}
+.side-note{margin:22px 12px 0;padding:13px;border:1px solid rgba(255,255,255,.13);border-radius:12px;background:rgba(255,255,255,.05);font-size:11px;color:#dcecff}
+.main{margin-left:285px;width:calc(100% - 285px)}
+.hero{
+  min-height:560px;position:relative;display:flex;align-items:flex-end;overflow:hidden;
+  background-image:linear-gradient(90deg,rgba(2,20,48,.86),rgba(2,30,67,.30) 58%,rgba(2,20,48,.10)),url("assets/airport-hero.webp");
+  background-size:cover;background-position:center;
+}
+.hero:after{content:"";position:absolute;inset:auto 0 0;height:130px;background:linear-gradient(transparent,rgba(245,248,252,.95))}
+.language-switch{
+  position:absolute;z-index:10;top:24px;right:28px;
+  display:flex;gap:3px;padding:4px;border-radius:999px;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.30);
+  backdrop-filter:blur(10px);
+}
+.lang-btn{
+  border:0;background:transparent;color:#fff;cursor:pointer;
+  padding:7px 12px;border-radius:999px;
+  font-size:11px;font-weight:bold;letter-spacing:.4px;
+}
+.lang-btn.active{background:#fff;color:#062b63}
+.en-version{display:none}
+body.lang-en .mn-version{display:none!important}
+body.lang-en .en-version{display:block!important}
+.hero-content{position:relative;z-index:2;max-width:1120px;padding:80px 6vw 88px;color:white}
+.hero-kicker{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.28);font-size:12px;backdrop-filter:blur(8px)}
+.hero h1{font-size:clamp(32px,4vw,58px);line-height:1.08;margin:20px 0 15px;letter-spacing:-1px;max-width:850px}
+.hero p{font-size:17px;max-width:730px;margin:0;color:#eef6ff}
+.meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:28px;max-width:900px}
+.meta{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.20);border-radius:13px;padding:12px 14px;backdrop-filter:blur(10px)}
+.meta span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.8px;opacity:.68;margin-bottom:4px}
+.meta strong{font-size:13px}
+.container{max-width:1200px;margin:-38px auto 0;padding:0 28px 60px;position:relative;z-index:4}
+.section{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);margin:22px 0;overflow:hidden;scroll-margin-top:24px}
+.section-head{padding:20px 24px;background:linear-gradient(90deg,var(--navy),#0b4b90);color:#fff;display:flex;align-items:center;gap:14px}
+.section-no{width:40px;height:40px;border-radius:11px;background:rgba(255,255,255,.13);display:grid;place-items:center;font-weight:bold}
+.section-head h2{font-size:18px;margin:0;line-height:1.25}
+.section-body{padding:25px}
+.section-intro{color:var(--muted);margin:0 0 18px}
+.grid2{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:start}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+.card{padding:17px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg,#fff,#f8fbff)}
+.card h3{margin:0 0 7px;font-size:14px;color:var(--navy)}
+.card p{margin:0;color:#465467;font-size:13px}
+ul.clean{margin:0;padding-left:19px}
+ul.clean li{margin:8px 0;padding-left:2px}
+.summary-list{display:grid;gap:11px}
+.summary-list li{list-style:none;margin:0;padding:13px 15px;border:1px solid var(--line);border-radius:12px;background:#fbfdff}
+.summary-list strong{color:var(--navy)}
+.highlight{border-left:4px solid #1683d8;background:#f0f7ff;padding:15px 17px;border-radius:0 12px 12px 0;margin:18px 0}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:22px}
+.gallery-item{padding:0;border:0;background:#edf3f9;border-radius:13px;overflow:hidden;cursor:zoom-in;aspect-ratio:4/3}
+.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:.25s}
+.gallery-item:hover img{transform:scale(1.045)}
+.gallery-label{font-size:11px;color:var(--muted);margin:8px 0 0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+.stat{border:1px solid var(--line);border-radius:15px;padding:17px;background:linear-gradient(135deg,#f8fbff,#fff)}
+.stat b{display:block;font-size:29px;color:var(--navy);line-height:1}
+.stat span{display:block;margin-top:7px;color:var(--muted);font-size:12px}
+.bars{display:grid;gap:13px}
+.bar-row{display:grid;grid-template-columns:180px 1fr 55px;gap:12px;align-items:center}
+.bar-label{font-size:12px;font-weight:bold}
+.track{height:11px;background:#e8eef5;border-radius:99px;overflow:hidden}
+.fill{height:100%;background:linear-gradient(90deg,#0a3f83,#1688dc);border-radius:99px}
+.bar-val{text-align:right;color:var(--navy);font-weight:bold;font-size:12px}
+.conclusion{background:linear-gradient(135deg,#061f46,#0a4e91);color:#fff;border:0}
+.conclusion .section-head{background:transparent}
+.conclusion .section-body{padding-top:0}
+.conclusion p{color:#e8f2ff}
+.plan{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.plan-item{padding:17px;border:1px solid var(--line);border-radius:14px;background:#fff}
+.plan-item b{color:var(--navy)}
+.footer{padding:25px 0 8px;text-align:center;color:#8a96a8;font-size:11px}
+.mobile-toggle{display:none;position:fixed;z-index:50;top:13px;left:13px;width:43px;height:43px;border:0;border-radius:12px;background:var(--navy);color:#fff;box-shadow:0 8px 25px rgba(0,0,0,.18);font-size:20px}
+.overlay{display:none}
+.lightbox{position:fixed;inset:0;background:rgba(2,11,25,.88);z-index:100;display:none;align-items:center;justify-content:center;padding:30px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:min(1100px,94vw);max-height:88vh;border-radius:12px;box-shadow:0 20px 70px rgba(0,0,0,.45)}
+.lightbox .close{position:absolute;top:18px;right:22px;width:44px;height:44px;border:1px solid rgba(255,255,255,.3);border-radius:50%;background:rgba(255,255,255,.08);color:#fff;font-size:25px;cursor:pointer}
+@media(max-width:1000px){
+  .sidebar{width:245px}.main{margin-left:245px;width:calc(100% - 245px)}
+  .meta-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:760px){
+  body{font-size:13px}
+  .mobile-toggle{display:block}
+  .sidebar{transform:translateX(-100%);transition:.25s;width:285px;box-shadow:12px 0 35px rgba(0,0,0,.2)}
+  .sidebar.open{transform:translateX(0)}
+  .overlay.open{display:block;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:20}
+  .main{margin-left:0;width:100%}
+  .hero{min-height:540px;background-position:60% center}
+  .hero-content{padding:75px 22px 85px}
+  .hero h1{font-size:35px}
+  .hero p{font-size:14px}
+  .meta-grid{grid-template-columns:1fr 1fr}
+  .container{padding:0 13px 40px;margin-top:-25px}
+  .section-body{padding:18px}
+  .grid2{grid-template-columns:1fr}
+  .cards,.plan{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .bar-row{grid-template-columns:120px 1fr 35px}
+}
+@media(max-width:430px){
+  .hero{min-height:590px}
+  .meta-grid{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr 1fr}
+  .bar-row{grid-template-columns:105px 1fr 32px;gap:8px}
+  .bar-label{font-size:11px}
+}
+
+/* English mode: show only the English section text, never the original MN text */
+body.lang-en .section-body > :not(.en-version):not(.gallery) {
+  display:none !important;
+}
+body.lang-en .section-body > .en-version {
+  display:block !important;
+}
+
+</style>
+</head>
+<body>
+<button class="mobile-toggle" aria-label="Цэс нээх" onclick="toggleMenu()">☰</button>
+<div class="overlay" onclick="toggleMenu()"></div>
+
+<aside class="sidebar" id="sidebar">
+  <div class="brand">
+    <div class="eyebrow">Airport • IT • Engineering</div>
+    <h2>3 сарын тайлан</h2>
+    <p>Ээлжийн техникч · Э.Төрбат</p>
+  </div>
+  <nav class="nav">
+    <a href="#home"><span class="num">00</span> Нүүр</a>
+    <a href="#training"><span class="num">01</span> Сургалт</a>
+    <a href="#research"><span class="num">02</span> Судалгаа</a>
+    <a href="#technical"><span class="num">03</span> Техникийн ажил</a>
+    <a href="#it"><span class="num">04</span> IT ажил</a>
+    <a href="#service"><span class="num">05</span> Үйлчилгээ</a>
+    <a href="#control"><span class="num">06</span> Хяналт</a>
+    <a href="#innovation"><span class="num">07</span> Санаачилга</a>
+    <a href="#plan"><span class="num">08</span> Төлөвлөгөө</a>
+    <a href="#stats"><span class="num">09</span> Статистик</a>
+    <a href="#conclusion"><span class="num">10</span> Дүгнэлт</a>
+  </nav>
+  <div class="side-note">Тайлангийн агуулгыг үндсэн ажлын чиглэлээр нь бүлэглэн товчлон боловсруулав.</div>
+</aside>
+
+<main class="main">
+<section class="hero" id="home">
+  <div class="language-switch" aria-label="Хэл сонгох">
+    <button type="button" class="lang-btn active" data-lang="mn">MN</button>
+    <button type="button" class="lang-btn" data-lang="en">EN</button>
+  </div>
+  <div class="hero-content">
+    <div class="hero-kicker">✦ Нью Улаанбаатар Интернэшнл Эйрпорт</div>
+    <h1>3 сарын туршилтын хугацааны тайлан</h1>
+    <p>Инженер техникийн газар · Мэдээлэл технологийн хэлтэс · Ээлжийн техникч</p>
+    <div class="meta-grid">
+      <div class="meta"><span>Ажлын газар</span><strong>Нью Улаанбаатар Интернэшнл Эйрпорт</strong></div>
+      <div class="meta"><span>Газар, хэлтэс</span><strong>Инженер техникийн газар, МТ хэлтэс</strong></div>
+      <div class="meta"><span>Албан тушаал</span><strong>Ээлжийн техникч</strong></div>
+      <div class="meta"><span>Ажилтан</span><strong>Э.Төрбат</strong></div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+
+<section class="section" id="training">
+  <div class="section-head"><div class="section-no">01</div><h2>СУРГАЛТАД ХАМРАГДСАН БАЙДАЛ</h2></div>
+  <div class="section-body">
+<div class="en-version"><p class="section-intro">During the reporting period, the required occupational safety and IT-related training programs were completed.</p>
+<ul class="clean">
+<li>Alcohol awareness training</li>
+<li>Working at height training</li>
+<li>Industrial accident safety training</li>
+<li>Safety procedures for working in confined spaces</li>
+<li>FortiClient Endpoint system deployment training</li>
+</ul></div>
+
+    <div class="grid2">
+      <div>
+        <p class="section-intro">Тайлант хугацаанд хөдөлмөрийн аюулгүй байдал болон мэдээллийн технологийн чиглэлийн шаардлагатай сургалтуудад хамрагдсан.</p>
+        <ul class="clean">
+          <li>Архины хор уршгийн сургалт</li>
+          <li>Өндрийн сургалт</li>
+          <li>Үйлдвэрлэлийн ослын сургалт</li>
+          <li>Хязгаарлагдмал орчинд ажиллах үеийн аюулгүй ажиллагааны сургалт</li>
+          <li>FortiClient Endpoint систем нэвтрүүлэх сургалт</li>
+        </ul>
+      </div>
+      <div class="card"><h3>Сургалтын үр дүн</h3><p>Аюулгүй ажиллагааны шаардлага, ажлын байрны эрсдэлийг тооцох дадал болон үйлдвэрлэлийн ослын талаар практик ойлголт нэмэгдсэн.</p></div>
+    </div>
+    
+    <div class="gallery" data-gallery="training">
+      <button class="gallery-item" type="button" data-full="assets/report-24.png" aria-label="Зургийг томоор харах"><img src="assets/report-24.png" alt="Сургалтын үеийн зураг" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-25.png" aria-label="Зургийг томоор харах"><img src="assets/report-25.png" alt="Сургалтын үеийн зураг" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-26.png" aria-label="Зургийг томоор харах"><img src="assets/report-26.png" alt="Сургалтын үеийн зураг" loading="lazy"></button>
+    </div>
+    
+  </div>
+</section>
+
+<section class="section" id="research">
+  <div class="section-head"><div class="section-no">02</div><h2>СУДАЛГАА, ЗОХИОН БАЙГУУЛАЛТЫН АЖИЛ, ҮҮРЭГ ДААЛГАВАР</h2></div>
+  <div class="section-body">
+<div class="en-version"><div class="cards">
+<div class="card"><h3>Equipment surveys</h3><p>Surveys of computers, Wi-Fi routers, UPS units, thermometers and network equipment were prepared and submitted to the relevant engineers.</p></div>
+<div class="card"><h3>Network & communication surveys</h3><p>Special-number call testing, IP/network information and workplace SIPOS assessment tasks were completed.</p></div>
+<div class="card"><h3>Technical solution research</h3><p>A technical solution for connecting Cargo cooling equipment to the Internet for online monitoring was researched.</p></div>
+<div class="card"><h3>Documentation & guides</h3><p>An IT guide for Nubia employees was prepared and uploaded to the department TASK system.</p></div>
+</div></div>
+
+    <div class="cards">
+      <div class="card"><h3>Тоног төхөөрөмжийн судалгаа</h3><p>Гаднах байгууламжуудын компьютер, Wi‑Fi router, UPS, термометр болон сүлжээний ажилд шаардлагатай тоног төхөөрөмжийн судалгаа, үнийн мэдээллийг нэгтгэн холбогдох инженерүүдэд хүргүүлсэн.</p></div>
+      <div class="card"><h3>Сүлжээ ба холбооны судалгаа</h3><p>Тусгай дугаарын дуудлагын тест, IP болон сүлжээний мэдээлэл боловсруулсан.</p></div>
+      
+      <div class="card"><h3>Баримт бичиг, гарын авлага</h3><p>Нубиа компанийн ажилчдад зориулсан IT гарын авлагыг боловсруулж хэлтсийн TASK орчинд байршуулсан Мөн ээлжийн техникчдийн SIPOS үнэлгээг боловсруулсан.</p></div>
+    </div>
+    
+    <div class="gallery" data-gallery="research">
+      <button class="gallery-item" type="button" data-full="assets/report-21.png" aria-label="Зургийг томоор харах"><img src="assets/report-21.png" alt="Судалгаа, зохион байгуулалтын материал" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-22.png" aria-label="Зургийг томоор харах"><img src="assets/report-22.png" alt="Судалгаа, зохион байгуулалтын материал" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-23.png" aria-label="Зургийг томоор харах"><img src="assets/report-23.png" alt="Судалгаа, зохион байгуулалтын материал" loading="lazy"></button>
+    </div>
+    
+  </div>
+</section>
+
+<section class="section" id="technical">
+  <div class="section-head"><div class="section-no">03</div><h2>ТЕХНИКИЙН АЖИЛ ҮЙЛЧИЛГЭЭ</h2></div>
+  <div class="section-body">
+<div class="en-version"><p class="section-intro">Technical calls, installations, repairs and configuration tasks were grouped into the following main work areas.</p>
+<div class="summary-list">
+<li><strong>Network infrastructure:</strong> Cable installation and concealment, socket and patch connections, IP addressing, port and TP-link troubleshooting, and preparing network access for new workstations.</li>
+<li><strong>CCTV & monitoring:</strong> Camera installation, angle adjustment, switch/receiver checks, display and converter replacement, and on-site troubleshooting.</li>
+<li><strong>Access Control & attendance:</strong> Installation and configuration of card readers, exit buttons, magnetic locks, ID readers and attendance devices.</li>
+<li><strong>UPS & power:</strong> Battery testing, UPS replacement, online-mode configuration, equipment registration and fire-alarm response checks.</li>
+<li><strong>Other technical work:</strong> FIDS network preparation, TV installation preparation, door, lock, socket and connection repairs.</li>
+</div></div>
+
+    <p class="section-intro">Олон төрлийн техникийн дуудлага, суурилуулалт, засвар, тохиргоог нэгтгэн дараах үндсэн чиглэлээр гүйцэтгэсэн.</p>
+    <div class="summary-list">
+      <li><strong>Сүлжээний дэд бүтэц:</strong> Сүлжээний кабель татах, далдлах, socket болон patch холболт хийх, төхөөрөмжийн IP хаягжилт хийх, порт болон TP link-ийн ажиллагааг сэргээх, шинэ ажлын байрны сүлжээ бэлтгэх ажлууд.</li>
+      <li><strong>CCTV ба хяналтын систем:</strong> Камер байрлуулах, өнцөг тохируулах, камерын switch болон хүлээн авагч төхөөрөмжийг шалгах, дэлгэц болон хувиргагч солих, доголдлыг газар дээр нь оношлон хэвийн ажиллагаанд оруулах.</li>
+      <li><strong>Access Control, цаг бүртгэл:</strong> Карт уншигч, exit button, соронзон цоож, үнэмлэх унших төхөөрөмж, цаг бүртгэлийн төхөөрөмжүүдийг суурилуулах, холбох, тохируулах.</li>
+      <li><strong>UPS ба цахилгаан хангамж:</strong> UPS-ийн battery тест, төхөөрөмж солих, online горимд тохируулах, хуучин төхөөрөмжийн бүртгэл хийх, галын дохиоллын дуудлагад шалгалт хийх.</li>
+      <li><strong>Бусад техникийн ажил:</strong> FIDS дэлгэцийн сүлжээний бэлтгэл, телевиз суурилуулах бэлтгэл, хаалга, соронзон цоож, socket болон холболтын жижиг засвар үйлчилгээ.</li>
+    </div>
+    
+    <div class="gallery" data-gallery="technical">
+      <button class="gallery-item" type="button" data-full="assets/report-27.png" aria-label="Зургийг томоор харах"><img src="assets/report-27.png" alt="Техникийн ажил үйлчилгээ" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-28.png" aria-label="Зургийг томоор харах"><img src="assets/report-28.png" alt="Техникийн ажил үйлчилгээ" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-29.png" aria-label="Зургийг томоор харах"><img src="assets/report-29.png" alt="Техникийн ажил үйлчилгээ" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-30.png" aria-label="Зургийг томоор харах"><img src="assets/report-30.png" alt="Техникийн ажил үйлчилгээ" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-31.png" aria-label="Зургийг томоор харах"><img src="assets/report-31.png" alt="Техникийн ажил үйлчилгээ" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-32.png" aria-label="Зургийг томоор харах"><img src="assets/report-32.png" alt="Техникийн ажил үйлчилгээ" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-33.png" aria-label="Зургийг томоор харах"><img src="assets/report-33.png" alt="Техникийн ажил үйлчилгээ" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-34.png" aria-label="Зургийг томоор харах"><img src="assets/report-34.png" alt="Техникийн ажил үйлчилгээ" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-35.png" aria-label="Зургийг томоор харах"><img src="assets/report-35.png" alt="Техникийн ажил үйлчилгээ" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-36.png" aria-label="Зургийг томоор харах"><img src="assets/report-36.png" alt="Техникийн ажил үйлчилгээ" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-37.png" aria-label="Зургийг томоор харах"><img src="assets/report-37.png" alt="Техникийн ажил үйлчилгээ" loading="lazy"></button>
+    </div>
+    
+  </div>
+</section>
+
+<section class="section" id="it">
+  <div class="section-head"><div class="section-no">04</div><h2>IT АЖИЛ ҮЙЛЧИЛГЭЭ</h2></div>
+  <div class="section-body">
+<div class="en-version"><p class="section-intro">Daily IT support was provided for users, computers, software, printers and network connections.</p>
+<div class="cards">
+<div class="card"><h3>Computers & domain</h3><p>New computer deployment, network/domain configuration, formatting, application installation and file migration.</p></div>
+<div class="card"><h3>Printers & scanners</h3><p>Printer installation, drivers, scanning software, print troubleshooting and printer surveys.</p></div>
+<div class="card"><h3>User accounts</h3><p>Attendance registration and email/password recovery or renewal support.</p></div>
+<div class="card"><h3>Network & multimedia</h3><p>Internet troubleshooting and configuration of displays, dongles, sound drivers and user-service connections.</p></div>
+</div></div>
+
+    <p class="section-intro">Хэрэглэгчийн өдөр тутмын IT хэрэгцээ, компьютерийн бэлтгэл, програм хангамж, принтер болон сүлжээний холболтын үйлчилгээг нэгтгэн гүйцэтгэсэн.</p>
+    <div class="cards">
+      <div class="card"><h3>Компьютер, домайн</h3><p>Шинэ компьютер байрлуулах, сүлжээнд холбох, домайн тохируулах, формат хийх, хэрэглээний програм суулгах, хуучин компьютерээс файл архивлан шинэ төхөөрөмж рүү шилжүүлэх.</p></div>
+      <div class="card"><h3>Принтер ба сканнер</h3><p>Принтер суулгах, драйвер болон скан програм тохируулах, хэвлэх командын доголдол засах, олон байршлын принтерийн судалгаа гаргах.</p></div>
+      <div class="card"><h3>Хэрэглэгчийн бүртгэл болон Имэйл</h3><p>Цаг бүртгэлийн төхөөрөмжид ажилтан бүртгэх, имэйл болон нууц үгийн хугацаа дууссан тохиолдолд сэргээх, шинэчлэх үйлчилгээ үзүүлсэн.</p></div>
+      <div class="card"><h3>Бусад</h3><p>ИДуудлагын дагуу IT-гийн үйлчилгээг цаг тухай бүрт нь түргэн шуурхай шийдвэрлэсэн.</p></div>
+    </div>
+    
+    <div class="gallery" data-gallery="it">
+      <button class="gallery-item" type="button" data-full="assets/report-01.png" aria-label="Зургийг томоор харах"><img src="assets/report-01.png" alt="IT ажил үйлчилгээ" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-02.png" aria-label="Зургийг томоор харах"><img src="assets/report-02.png" alt="IT ажил үйлчилгээ" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-03.png" aria-label="Зургийг томоор харах"><img src="assets/report-03.png" alt="IT ажил үйлчилгээ" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-04.png" aria-label="Зургийг томоор харах"><img src="assets/report-04.png" alt="IT ажил үйлчилгээ" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-05.png" aria-label="Зургийг томоор харах"><img src="assets/report-05.png" alt="IT ажил үйлчилгээ" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-07.png" aria-label="Зургийг томоор харах"><img src="assets/report-07.png" alt="IT ажил үйлчилгээ" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-08.png" aria-label="Зургийг томоор харах"><img src="assets/report-08.png" alt="IT ажил үйлчилгээ" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-09.png" aria-label="Зургийг томоор харах"><img src="assets/report-09.png" alt="IT ажил үйлчилгээ" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-10.png" aria-label="Зургийг томоор харах"><img src="assets/report-10.png" alt="IT ажил үйлчилгээ" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-12.png" aria-label="Зургийг томоор харах"><img src="assets/report-12.png" alt="IT ажил үйлчилгээ" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-18.png" aria-label="Зургийг томоор харах"><img src="assets/report-18.png" alt="IT ажил үйлчилгээ" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-19.png" aria-label="Зургийг томоор харах"><img src="assets/report-19.png" alt="IT ажил үйлчилгээ" loading="lazy"></button>
+    </div>
+    
+  </div>
+</section>
+
+<section class="section" id="service">
+  <div class="section-head"><div class="section-no">05</div><h2>ҮЙЛЧИЛГЭЭ</h2></div>
+  <div class="section-body">
+<div class="en-version"><div class="grid2"><div>
+<ul class="clean">
+<li>Scheduled technical inspections were performed at the Heating Station, Deep Well, Fuel Building, A-camp and Post 41.</li>
+<li>UPS cleaning, load testing, charging/discharging and logging were performed in CPS rooms.</li>
+<li>Equipment operation was checked and checklists were maintained in communication and server rooms.</li>
+<li>The storage room was organized.</li>
+</ul>
+</div>
+
+</div></div>
+
+    <div class="grid2">
+      <div>
+        <ul class="clean">
+          <li>Батлагдсан хуваарийн дагуу Дулааны станц, Гүний худаг, Шатахууны барилга, A‑camp, 41 постын тоног төхөөрөмжид техникийн үзлэг хийсэн.</li>
+          <li>CPS өрөөнүүдэд UPS-ийн чийгтэй цэвэрлэгээ, ачаалал өгч цэнэг шавхах ажил хийж тэмдэглэл хөтөлсөн.</li>
+          <li>Холбооны болон төв серверийн өрөөнүүдийн тоног төхөөрөмжийн ажиллагааг шалгаж check list хөтөлсөн.</li>
+          <li>Агуулахын өрөөний эмх цэгцийг зохион байгуулсан.</li>
+        </ul>
+      </div>
+      
+    </div>
+    
+    <div class="gallery" data-gallery="service">
+      <button class="gallery-item" type="button" data-full="assets/report-06.png" aria-label="Зургийг томоор харах"><img src="assets/report-06.png" alt="Үйлчилгээ, төлөвлөгөөт үзлэг" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-17.png" aria-label="Зургийг томоор харах"><img src="assets/report-17.png" alt="Үйлчилгээ, төлөвлөгөөт үзлэг" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-02.png" aria-label="Зургийг томоор харах"><img src="assets/report-02.png" alt="Үйлчилгээ, төлөвлөгөөт үзлэг" loading="lazy"></button>
+    </div>
+    
+  </div>
+</section>
+
+<section class="section" id="control">
+  <div class="section-head"><div class="section-no">06</div><h2>ХЯНАЛТ</h2></div>
+  <div class="section-body">
+<div class="en-version"><p class="section-intro">Supervision was provided for CCTV, network and communication works carried out by external organizations and project teams, including site coordination, safety and cable-routing checks.</p>
+<div class="cards">
+<div class="card"><h3>Camera installation</h3><p>Supervised camera installation works by BD One and checked site progress and required locations.</p></div>
+<div class="card"><h3>Network works</h3><p>Supervised network installation and connection work by Unitel, Univision and other external organizations.</p></div>
+<div class="card"><h3>Safety</h3><p>Monitored occupational safety and cable-routing activities during the terminal CCTV project.</p></div>
+</div></div>
+
+    <p class="section-intro">Гаднын байгууллага болон төслийн багийн камер, сүлжээ, холбооны ажилд газар дээрх зохион байгуулалт, хөдөлмөрийн аюулгүй ажиллагаа, кабель таталтын явцын хяналт тавьж ажилласан.</p>
+    <div class="cards">
+      <div class="card"><h3>Камер суурилуулалт</h3><p>BD One компанийн камер суурилуулах ажлуудад хяналт тавьж, шаардлагатай байршил болон ажлын явцыг шалгасан.</p></div>
+      <div class="card"><h3>Сүлжээний ажил</h3><p>Юнител, Юнивишн болон бусад гаднын байгууллагын сүлжээ татах, холболт хийх ажлын явцад серверийн өрөө болон барилгын талбайн хяналт хийсэн.</p></div>
+      <div class="card"><h3>Аюулгүй ажиллагаа</h3><p>Терминалын камержуулалтын төслийн үед хөдөлмөрийн аюулгүй байдал болон сүлжээ татах трассын ажилд хяналт тавьсан.</p></div>
+    </div>
+    
+    <div class="gallery" data-gallery="control">
+      <button class="gallery-item" type="button" data-full="assets/report-11.png" aria-label="Зургийг томоор харах"><img src="assets/report-11.png" alt="Хяналтын ажлын зураг" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-16.png" aria-label="Зургийг томоор харах"><img src="assets/report-16.png" alt="Хяналтын ажлын зураг" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-15.png" aria-label="Зургийг томоор харах"><img src="assets/report-15.png" alt="Хяналтын ажлын зураг" loading="lazy"></button>
+    </div>
+    
+  </div>
+</section>
+
+<section class="section" id="innovation">
+  <div class="section-head"><div class="section-no">07</div><h2>ШИНЭЭР САНААЧИЛЖ ХИЙСЭН АЖИЛ</h2></div>
+  <div class="section-body">
+<div class="en-version"><div class="cards">
+<div class="card"><h3>Consolidated network information</h3><p>Compiled equipment names, IP addresses, status and related information for devices connected to the organization-wide network.</p></div>
+<div class="card"><h3>Network cable layout</h3><p>Printed the airport network cable layout in color on A3 paper and placed it in the shift staff room.</p></div>
+</div>
+<div class="highlight">These initiatives were intended to make network troubleshooting, configuration and daily technical work faster and easier.</div></div>
+
+    <div class="cards">
+      <div class="card"><h3>Сүлжээний төхөөрөмжийн нэгдсэн мэдээлэл</h3><p>Байгууллагын сүлжээнд холбогдсон тоног төхөөрөмжийн нэр, IP хаяг, статус болон холбогдох мэдээллийг нэгтгэн гаргаж, ээлжийн сүлжээний инженерүүдэд ашиглахад бэлэн болгосон.</p></div>
+      <div class="card"><h3>Сүлжээний кабелийн шугамчлал</h3><p>Нисэх буудалд ашиглагдаж буй сүлжээний кабелийн шугамчлалыг A3 цаасан дээр өнгөтөөр хэвлэн ээлжийн ажилчдын өрөөнд байршуулсан.</p></div>
+    </div>
+    <div class="highlight">Эдгээр санаачилга нь сүлжээний тохиргоо, оношилгоо болон өдөр тутмын техникийн ажилд шаардлагатай мэдээллийг хурдан олоход чиглэсэн.</div>
+    
+    <div class="gallery" data-gallery="innovation">
+      <button class="gallery-item" type="button" data-full="assets/report-14.png" aria-label="Зургийг томоор харах"><img src="assets/report-14.png" alt="Шинээр санаачилж хийсэн ажил" loading="lazy"></button><button class="gallery-item" type="button" data-full="assets/report-13.png" aria-label="Зургийг томоор харах"><img src="assets/report-13.png" alt="Шинээр санаачилж хийсэн ажил" loading="lazy"></button>
+    </div>
+    
+  </div>
+</section>
+
+<section class="section" id="plan">
+  <div class="section-head"><div class="section-no">08</div><h2>ХИЙХЭЭР ТӨЛӨВЛӨЖ БУЙ АЖЛУУД</h2></div>
+  <div class="section-body">
+<div class="en-version"><div class="plan">
+<div class="plan-item"><b>01 · Consolidated inventory</b><p>Update and maintain the consolidated inventory and IP addressing of network equipment.</p></div>
+<div class="plan-item"><b>02 · Standard labeling</b><p>Standardize network cable and patch-panel labeling.</p></div>
+</div></div>
+
+    <div class="plan">
+      <div class="plan-item"><b>01 · Нэгдсэн бүртгэл</b><p>Сүлжээний тоног төхөөрөмжийн нэгдсэн бүртгэл болон IP хаягжилтыг шинэчилж, тогтмол хөтлөх.</p></div>
+      <div class="plan-item"><b>02 · Стандарт хаягжилт</b><p>Сүлжээний кабель болон patch panel-ийн хаягжилтыг нэг стандарттай болгох.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="stats">
+  <div class="section-head"><div class="section-no">09</div><h2>СТАТИСТИК</h2></div>
+  <div class="section-body">
+<div class="en-version">
+  <div class="stats">
+    <div class="stat"><b>95</b><span>Total work & activities</span></div>
+    <div class="stat"><b>69</b><span>Technical + IT work</span></div>
+    <div class="stat"><b>72.6%</b><span>Share of total work</span></div>
+    <div class="stat"><b>40</b><span>Technical work & services</span></div>
+  </div>
+  <div class="bars">
+    <div class="bar-row"><div class="bar-label">Technical work</div><div class="track"><div class="fill" style="width:100%"></div></div><div class="bar-val">40</div></div>
+    <div class="bar-row"><div class="bar-label">IT services</div><div class="track"><div class="fill" style="width:72.5%"></div></div><div class="bar-val">29</div></div>
+    <div class="bar-row"><div class="bar-label">Research</div><div class="track"><div class="fill" style="width:20%"></div></div><div class="bar-val">8</div></div>
+    <div class="bar-row"><div class="bar-label">Supervision</div><div class="track"><div class="fill" style="width:17.5%"></div></div><div class="bar-val">7</div></div>
+    <div class="bar-row"><div class="bar-label">Training</div><div class="track"><div class="fill" style="width:12.5%"></div></div><div class="bar-val">5</div></div>
+    <div class="bar-row"><div class="bar-label">Maintenance</div><div class="track"><div class="fill" style="width:10%"></div></div><div class="bar-val">4</div></div>
+    <div class="bar-row"><div class="bar-label">Initiatives</div><div class="track"><div class="fill" style="width:5%"></div></div><div class="bar-val">2</div></div>
+  </div>
+  <p class="section-intro" style="margin-top:20px">A total of 95 work activities were recorded during the reporting period. Technical work accounted for 40 activities, IT services 29, research and organization 8, supervision 7, training 5, maintenance 4, and new initiatives 2.</p>
+</div>
+
+    <div class="stats">
+      <div class="stat"><b>95</b><span>Нийт ажил, үйл ажиллагаа</span></div>
+      <div class="stat"><b>69</b><span>Техникийн + IT ажил</span></div>
+      <div class="stat"><b>72.6%</b><span>Нийт ажлын эзлэх хувь</span></div>
+      <div class="stat"><b>40</b><span>Техникийн ажил үйлчилгээ</span></div>
+    </div>
+    <div class="bars">
+      <div class="bar-row"><div class="bar-label">Техникийн ажил</div><div class="track"><div class="fill" style="width:100%"></div></div><div class="bar-val">40</div></div>
+      <div class="bar-row"><div class="bar-label">IT үйлчилгээ</div><div class="track"><div class="fill" style="width:72.5%"></div></div><div class="bar-val">29</div></div>
+      <div class="bar-row"><div class="bar-label">Судалгаа</div><div class="track"><div class="fill" style="width:20%"></div></div><div class="bar-val">8</div></div>
+      <div class="bar-row"><div class="bar-label">Хяналт</div><div class="track"><div class="fill" style="width:17.5%"></div></div><div class="bar-val">7</div></div>
+      <div class="bar-row"><div class="bar-label">Сургалт</div><div class="track"><div class="fill" style="width:12.5%"></div></div><div class="bar-val">5</div></div>
+      <div class="bar-row"><div class="bar-label">Үйлчилгээ</div><div class="track"><div class="fill" style="width:10%"></div></div><div class="bar-val">4</div></div>
+      <div class="bar-row"><div class="bar-label">Санаачилга</div><div class="track"><div class="fill" style="width:5%"></div></div><div class="bar-val">2</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section conclusion" id="conclusion">
+  <div class="section-head"><div class="section-no">10</div><h2>ДҮГНЭЛТ</h2></div>
+  <div class="section-body">
+    <div class="en-version">
+  
+  
+  <p class="section-intro" style="margin-top:20px">During the probation period, I participated in a total of 95 work activities as a Shift Technician in the Engineering and Technical Department, Information Technology Division of New Ulaanbaatar International Airport. I carried out practical tasks aimed at ensuring the normal and reliable operation of the organization’s information technology and technical infrastructure.</p>
+  <p class="section-intro" style="margin-top:20px">I gained practical knowledge and experience through the installation, configuration, inspection, troubleshooting, and maintenance of network connections, computers, printers, CCTV, Access Control, attendance systems, UPS, FIDS, POS, and other technical equipment.</p>
+  <p class="section-intro" style="margin-top:20px">I also developed my ability to provide prompt technical support by inspecting and diagnosing user requests and technical faults on site, performing the necessary configurations, and restoring normal operation. In addition, I participated in equipment surveys, IP addressing, UPS and server room inspections, scheduled technical maintenance, and network and equipment installation activities carried out by external organizations.</p>
+  <p class="section-intro" style="margin-top:20px">Going forward, I aim to continuously develop my knowledge and skills in network infrastructure, server and communication room equipment, information security, and preventive technical maintenance. My goal is to perform technical tasks that arise in the daily operations of a Shift Technician at a professional level and contribute to maintaining stable and reliable operations.</p>
+</div>
+    <p>Туршилтын хугацаанд Нью Улаанбаатар Интернэшнл Эйрпортын Инженер техникийн газар, Мэдээлэл технологийн хэлтсийн ээлжийн техникчийн албан үүргийг гүйцэтгэх хүрээнд нийт 95 төрлийн ажил, үйл ажиллагаанд оролцож, байгууллагын мэдээллийн технологи болон техникийн дэд бүтцийн хэвийн, найдвартай ажиллагааг хангахад чиглэсэн практик ажлуудыг гүйцэтгэлээ.</p>
+    <p>Сүлжээний холболт, компьютер, принтер, CCTV, Access Control, цаг бүртгэл, UPS, FIDS, POS болон бусад техник тоног төхөөрөмжийн суурилуулалт, тохиргоо, үзлэг, оношилгоо, засвар үйлчилгээний ажлуудаар практик мэдлэг, туршлага хуримтлуулсан.</p>
+    <p>Мөн хэрэглэгчийн дуудлага, техникийн гэмтлийг газар дээр нь шалган оношлох, шаардлагатай тохиргоо хийх, хэвийн ажиллагааг сэргээх зэрэг шуурхай үйлчилгээний ур чадвараа хөгжүүлсэн. Түүнчлэн тоног төхөөрөмжийн судалгаа, IP хаягжилт, UPS болон серверийн өрөөний үзлэг, төлөвлөгөөт техникийн үйлчилгээ, гаднын байгууллагын сүлжээ болон тоног төхөөрөмж суурилуулалтын ажлуудад оролцсон.</p>
+    <p>Цаашид сүлжээний дэд бүтэц, сервер болон холбооны өрөөний тоног төхөөрөмж, мэдээллийн аюулгүй байдал, урьдчилан сэргийлэх техникийн үйлчилгээний чиглэлээр мэдлэг, ур чадвараа тасралтгүй хөгжүүлж, ээлжийн техникчийн өдөр тутмын үйл ажиллагаанд үүсэж болох техникийн ажлыг мэргэжлийн түвшинд гүйцэтгэн тогтвортой ажиллагааг хангахад хувь нэмрээ оруулах зорилготой.</p>
+  </div>
+</section>
+
+<div class="footer">3 сарын дадлагажих хугацааны тайлан · Нью Улаанбаатар Интернэшнл Эйрпорт</div>
+</div>
+</main>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+  <button class="close" type="button" aria-label="Хаах" onclick="closeLightbox()">×</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script>
+function toggleMenu(){
+  document.getElementById('sidebar').classList.toggle('open');
+  document.querySelector('.overlay').classList.toggle('open');
+}
+document.querySelectorAll('.nav a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    if(window.innerWidth<=760) toggleMenu();
+  });
+});
+const lb=document.getElementById('lightbox');
+const lbImg=document.getElementById('lightboxImg');
+document.querySelectorAll('.gallery-item').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    lbImg.src=btn.dataset.full;
+    lb.classList.add('open');
+  });
+});
+function closeLightbox(){lb.classList.remove('open');lbImg.src='';}
+lb.addEventListener('click',e=>{if(e.target===lb) closeLightbox();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape') closeLightbox();});
+const sections=[...document.querySelectorAll('.section')];
+const links=[...document.querySelectorAll('.nav a')];
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+entry.target.id));
+    }
+  });
+},{rootMargin:'-25% 0px -65% 0px'});
+sections.forEach(s=>observer.observe(s));
+</script>
+
+<script>
+const EN = {
+  "3 сарын тайлан":"3-Month Report",
+  "Нүүр":"Home","Сургалт":"Training","Судалгаа":"Research",
+  "Техникийн ажил":"Technical Work","IT ажил":"IT Services",
+  "Үйлчилгээ":"Maintenance","Хяналт":"Supervision","Санаачилга":"Initiatives",
+  "Төлөвлөгөө":"Planned Work","Статистик":"Statistics","Дүгнэлт":"Conclusion",
+  "СУРГАЛТАД ХАМРАГДСАН БАЙДАЛ":"TRAINING ATTENDED",
+  "СУДАЛГАА, ЗОХИОН БАЙГУУЛАЛТЫН АЖИЛ, ҮҮР ДААЛГАВАР":"RESEARCH, ORGANIZATION & ASSIGNED TASKS",
+  "ТЕХНИКИЙН АЖИЛ ҮЙЛЧИЛГЭЭ":"TECHNICAL WORK & SERVICES",
+  "IT АЖИЛ ҮЙЛЧИЛГЭЭ":"IT WORK & SERVICES","ҮЙЛЧИЛГЭЭ":"MAINTENANCE",
+  "ХЯНАЛТ":"SUPERVISION","ШИНЭЭР САНААЧИЛЖ ХИЙСЭН АЖИЛ":"NEW INITIATIVES",
+  "ХИЙХЭЭР ТӨЛӨВЛӨЖ БУЙ АЖЛУУД":"PLANNED WORK","СТАТИСТИК":"STATISTICS","ДҮГНЭЛТ":"CONCLUSION",
+  "Ажлын газар":"Workplace","Газар, хэлтэс":"Department","Албан тушаал":"Position","Ажилтан":"Employee",
+  "Нью Улаанбаатар Интернэшнл Эйрпорт":"New Ulaanbaatar International Airport",
+  "Инженер техникийн газар, МТ хэлтэс":"Engineering & Technical Department, IT Division",
+  "Инженер техникийн газар, Мэдээлэл технологийн хэлтэс":"Engineering & Technical Department, IT Division",
+  "Ээлжийн техникч":"Shift Technician","Э.Төрбат":"E. Turbat"
+};
+
+const nodes=[];
+document.querySelectorAll('.sidebar, .hero, .section-head').forEach(root=>{
+  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+  let n;
+  while(n=walker.nextNode()) nodes.push([n,n.nodeValue]);
+});
+
+function setLanguage(lang){
+  document.body.classList.toggle('lang-en',lang==='en');
+  document.querySelectorAll('.lang-btn').forEach(b=>{
+    b.classList.toggle('active',b.dataset.lang===lang);
+  });
+  nodes.forEach(([node,original])=>{
+    const key=original.trim();
+    if(lang==='en' && EN[key]) node.nodeValue=original.replace(key,EN[key]);
+    else if(lang==='mn') node.nodeValue=original;
+  });
+  localStorage.setItem('reportLanguage',lang);
+}
+
+document.querySelectorAll('.lang-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>setLanguage(btn.dataset.lang));
+});
+setLanguage(localStorage.getItem('reportLanguage') || 'mn');
+</script>
+
+</body>
+</html>
